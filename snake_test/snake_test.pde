@@ -4,6 +4,7 @@ float segLength = 36;
 int FoodY = 0;
 int FoodX = 0;
 int sFood = 10;
+food =false; 
 
 void setup() {
   size(1280, 720);
@@ -19,11 +20,13 @@ void draw() {
   ellipse(FoodX, FoodY, sFood, sFood);
   dragSegment(0, mouseX, mouseY);
   if(dist(mouseX, mouseY, FoodX, FoodY) < sFood){
+  segLength = segLength +1;
+}
   for(int i=0; i<x.length-1; i++) {
     dragSegment(i+1, x[i], y[i]);
   }
 }
-}
+
 void dragSegment(int i, float xin, float yin) {
   float dx = xin - x[i];
   float dy = yin - y[i];

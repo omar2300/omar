@@ -1,9 +1,9 @@
 float[] x = new float[20];
 float[] y = new float[20];
-float segLength = 36;
+float segLength = 20;
 int FoodY = 0;
 int FoodX = 0;
-int sFood = 10;
+int sFood = 40;
 
 
 void setup() {
@@ -21,6 +21,9 @@ void draw() {
   dragSegment(0, mouseX, mouseY);
   if(dist(mouseX, mouseY, FoodX, FoodY) < sFood){
   segLength = segLength +1;
+  FoodY = (int) random(0, height-sFood);
+  FoodX = (int) random(0, width-sFood);
+  
 }
   for(int i=0; i<x.length-1; i++) {
     dragSegment(i+1, x[i], y[i]);
